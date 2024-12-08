@@ -1,10 +1,16 @@
-import {Add, DescriptionOutlined,GroupOutlined, CalendarMonthOutlined, GridViewOutlined } from '@mui/icons-material'
-import React from 'react'
- 
-
+"use client"
+import {Add, DescriptionOutlined,MoreVert,GroupOutlined, CalendarMonthOutlined, GridViewOutlined, DonutLargeOutlined } from '@mui/icons-material'
+import {useState} from 'react'
+import CreateTaskModal from '../create-task-modal/create-task-modal'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link' 
+import UserAvatar from "../userAvatar/userAvatar"
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 const SIDEBAR_ICONS:Record<string, React.ReactElement>={
-    calendar: <CalendarMonthOutlined style={{fontSize:'20px'}}/>,
+    calendar: <CalendarMonthOutlined style={{fontSize:"20px"}}/>,
+    donutLarge: <DonutLargeOutlined style={{fontSize:'20px'}}/>,
     description: <DescriptionOutlined style={{fontSize:'20px'}}/>,
     group: <GroupOutlined style={{fontSize:'20px'}}/>,
     board: <GridViewOutlined style={{fontSize:"20px"}}/>
@@ -12,10 +18,10 @@ const SIDEBAR_ICONS:Record<string, React.ReactElement>={
 
 const SIDEBAR_ITEMS = [
     {
-        id: "my-tasks",
-        name: "My Tasks",
-        path: '/my-tasks',
-        icon: "calendar",
+        id: "projects",
+        name: "Projects",
+        path: '/projects',
+        icon: "description",
     },
     {
         id: "board",
@@ -24,42 +30,84 @@ const SIDEBAR_ITEMS = [
         icon: "board",
     },
     {
-        id: "projects",
-        name: "Projects",
-        path: '/projects',
-        icon: "description",
-    },
-    {
-        id: "team",
-        name: "Teams",
-        path: '/team',
-        icon: "group",
+        id: "my-tasks",
+        name: "Backlogs",
+        path: '/backlogs',
+        icon: "donutLarge",
     },
 
 ]
 
 
-
 const SideBar = ()=>{
 
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
+
+    const pathName = usePathname() 
+
     return (
-        <div className=" w-60 border-r-[1px] h-full p-2">
-            <button className="bg-[#4c60f5] mt-5 text-white font-medium flex items-center justify-center w-full p-2 rounded-md">
-                <Add style={{fontSize:"20px"}}/>
-                <span className='pl-1'>Add New Task</span>
-            </button>
+        <div className="absolute md:w-60 w-14 border-r-[1px] h-full text-black">
+            <CreateTaskModal/>
             <div className='mt-6'>
                 <ul>
                     {SIDEBAR_ITEMS.map((item, index)=>{
-                        return <li className='py-2 cursor-pointer px-1 rounded-sm hover:bg-[#f1f1f1]' key={item.id}>
-                            {SIDEBAR_ICONS[item.icon]}
-                            <span className='pl-1.5'>
+                        const isTabActive = pathName === item.path
+                        return   ( 
+                        <Link key={item.name} href={item.path}>
+                        <div key={item.id} className={`relative w-full h-[40px] my-2 cursor-pointer hover:bg-[#e6e6e6] ${isTabActive ? "bg-[#e6e6e6]" : ""} `}>
+                        <div className={`flex items-center before:content-normal before:w-[4px] h-full  before:absolute before:right-0 before:h-full ${isTabActive ? "before:bg-[#2038f2]" : ""}`}>
+                        <div className="p-2 w-full flex items-center md:justify-start justify-center">
+                          {SIDEBAR_ICONS[item.icon]}
+                           <span className='ml-1 md:block hidden'>
                             {item.name}
-
-                            </span>
-                            </li>
+                            
+                            </span> 
+                        </div>
+                            
+                        </div>
+                    </div>
+                    </Link>
+                        )
                     })}
                 </ul>
+            </div>
+            
+          
+            <div className='p-1 absolute bottom-6 w-full'>
+                <div className=' flex items-center  md:justify-between justify-center w-full'>
+                <div
+                
+                className='flex items-center'>
+                <UserAvatar/>
+                <span className='text-sm pl-2 md:block hidden '>Sam Effah</span>
+                </div>
+                <button
+                 onClick={handleClick}
+                 className='md:block hidden'
+                >
+                    <MoreVert/>
+                </button>
+                </div>
+                    <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu>
             </div>
         </div>
     )

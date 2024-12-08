@@ -1,13 +1,11 @@
 import NavBar from "./components/navbar/navbar";
 import SideBar from "./components/sidebar/sidebar";
+import Board from "./board/page";
+import TaskCalendar from "./task-calendar/task-calendar";
+import Backlogs from "./backlogs/page";
 
 export default function Home() {
   return (
-    <div className="h-full  relative font-[family-name:var(--font-geist-sans)]">
-      <NavBar/>
-      <div className="relative h-[calc(100%-60px)]">
-        <SideBar/>
-      </div>
-    </div>
+         <Backlogs/>
   );
 }

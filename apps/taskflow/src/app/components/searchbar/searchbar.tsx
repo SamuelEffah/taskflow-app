@@ -1,10 +1,13 @@
 "use client"
-import {useState} from "react"
+import React ,{useState} from "react"
 import SearchIcon from "@mui/icons-material/Search"
 import {useCombobox, } from 'downshift'
 
 
 export interface SearchBarProps{
+    items:  string[]
+    seletedItem: string
+    onSelectedItem: (item: string)=> void
 }
 
 
@@ -14,7 +17,7 @@ const books = [
     {id: 'book-3', author: 'Fyodor Dostoyevsy', title: 'The Idiot'},
 ]
 
-const SearchBar  = ()=>{
+const SearchBar  = (props: SearchBarProps)=>{
     // const [inputValue, setInputValue]= useState("")
     const [items, setItems] = useState(books)
 
@@ -23,9 +26,9 @@ const SearchBar  = ()=>{
         isOpen,
         getInputProps,
         getItemProps,
-        highlightedIndex,
+        // highlightedIndex,
         getMenuProps,
-        selectedItem
+        // selectedItem
      }  = useCombobox({
         onInputValueChange({inputValue}){
             console.log('intputValue.... ', inputValue)
@@ -39,26 +42,25 @@ const SearchBar  = ()=>{
     })
 
     return (
-        <div className="relative ">
-        <div className="bg-[#efefef] p-1.5 rounded-md">
+        <div className="relative w-[500px]">
+        <div className="w-full bg-[#e1e1e1] p-1.5 rounded-md">
             <SearchIcon className="text-[#8e8e8e]" style={{fontSize:"20px"}}/>
             <input 
-            
-            className="bg-[#efefef] outline-none"
+
+            className="bg-[#e1e1e1] h-full w-[90%] outline-none"
             placeholder="search for tasks"
             {...getInputProps()}
            />
        
        </div>
        <ul 
-       className="absolute z-50 bg-[#f0f0f0] w-full rounded-b-md"
-       
+       className="absolute z-50 drop-shadow-lg bg-[#fff] w-full rounded-b-md"
         {...getMenuProps()}
        >
        {
         isOpen && items.map((item, index)=>{
             return <li
-            className="p-2"
+            className="p-2 cursor-pointer hover:bg-[#e6e6e6]"
             key={item.id}
             {...getItemProps({item,index})}
             >
