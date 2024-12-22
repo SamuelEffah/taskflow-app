@@ -1,14 +1,7 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import '@mantine/core/styles.css';
-import NavBar from "./components/navbar/navbar";
-import SideBar from "./components/sidebar/sidebar";
-import Board from "./board/page";
-import TaskCalendar from "./task-calendar/task-calendar";
-import Backlogs from "./backlogs/page";
 
 import "./globals.css";
-import Login from "./login/page";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,7 +26,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Login/>
+        
+        {children}
     {/* <div className="relative h-full font-[family-name:var(--font-geist-sans)]">
       <NavBar/>
       <div className="flex relative h-[calc(100%-60px)]">
