@@ -1,8 +1,13 @@
 import {} from "react";
 
-const UserAvatar = () => {
+interface UserAvatarProps {
+  className?: string;
+}
+const UserAvatar = (props: UserAvatarProps) => {
   return (
-    <div className="bg-red-400 text-sm w-7 h-7 flex flex-shrink-0 items-center justify-center rounded-full">
+    <div
+      className={`bg-red-400 text-xs w-7 h-7 flex flex-shrink-0 items-center justify-center rounded-full ${props.className}`}
+    >
       <p>SE</p>
     </div>
   );

@@ -28,7 +28,14 @@ function GridCell<TData, TValue>({
   ...rest
 }: CellProps<TData, TValue>) {
   const value = renderValue();
-  return <td>{value as ReactNode}</td>;
+  const columnSize = column.getSize();
+
+  console.log("colums..... ", column);
+  return (
+    <td className="text-sm" style={{ width: columnSize }}>
+      {value as ReactNode}
+    </td>
+  );
 }
 
 export default GridCell;
