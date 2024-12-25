@@ -45,7 +45,7 @@ const Backlogs = () => {
       size: 30,
       cell: (props) => {
         const value = props.getValue() as string;
-        return <td>{ICONS_MAP[value]}</td>;
+        return <span>{ICONS_MAP[value]}</span>;
       },
     }),
     columHelper.accessor("issueNumber", {
@@ -64,12 +64,12 @@ const Backlogs = () => {
         const value = props.getValue() as string;
         const color = STATUS_ICON_MAP[value].color;
         return (
-          <td
+          <span
             style={{ backgroundColor: color }}
             className="text-[10px] rounded-sm font-medium  p-[3px] uppercase"
           >
             {STATUS_ICON_MAP[value].label}
-          </td>
+          </span>
         );
       },
     }),
@@ -81,9 +81,9 @@ const Backlogs = () => {
         const value = props.getValue() as string;
 
         return (
-          <td>
+          <span>
             <UserAvatar className="w-4 h-4" />
-          </td>
+          </span>
         );
       },
     }),

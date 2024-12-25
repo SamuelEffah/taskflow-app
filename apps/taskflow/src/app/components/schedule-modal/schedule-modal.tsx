@@ -46,11 +46,9 @@ const ScheduleModal = (props) => {
                 </span>
               </div>
               <div className="overflow-y-auto mt-2 h-[250px]">
-                <ScheduleItem />
-                <ScheduleItem />
-                <ScheduleItem />
-
-                <ScheduleItem />
+                {[...Array(3).keys()].map((task) => {
+                  return <ScheduleItem onClose={handleClose} key={task} />;
+                })}
               </div>
             </div>
           </div>

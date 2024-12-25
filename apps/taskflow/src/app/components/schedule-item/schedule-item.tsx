@@ -1,26 +1,49 @@
-const ScheduleItem = () => {
-  return (
-    <div className="relative w-full h-[60px] my-2 cursor-pointer hover:bg-[#e6e6e6]">
-      <div className="flex items-center before:content-normal before:w-[4px] h-full relative before:h-full before:bg-red-500">
-        <div className="p-2 w-full">
-          <span className=" bg-[#bbbbbb] text-[#474747] text-[10px] rounded-md p-1 px-1">
-            Task-2
-          </span>
-          <div>
-            <p className="text-sm font-medium m-0 p-0">
-              Improvmenent to the table
-            </p>
+"use client";
+import BugIcon from "@/app/shared/ui/icons/bug-icon";
+import FeatureIcon from "@/app/shared/ui/icons/feature-icon";
+import TaskIcon from "@/app/shared/ui/icons/task-icon";
+import { useCallback } from "react";
+import Link from "next/link";
 
-            <div className="flex justify-between items-center w-full text-[#818181]">
-              <p className="text-[10px] m-0 p-0">January 11 2024 at 11pm</p>
-              <div>
-                <span className="text-[12px]">11 comments</span>
-              </div>
-            </div>
+const ICONS_MAP: Record<string, React.JSX.Element> = {
+  bug: <BugIcon />,
+  feature: <FeatureIcon />,
+  task: <TaskIcon />,
+};
+
+interface ScheduleItemProps {
+  onClose: () => void;
+}
+
+const ScheduleItem = (props: ScheduleItemProps) => {
+  const handleNavigate = useCallback(() => {
+    props.onClose();
+  }, [props.onClose]);
+
+  return (
+    <Link onClick={handleNavigate} href={"/task/4"}>
+      <div
+        onClick={handleNavigate}
+        className="relative p-2 w-full h-max my-2 cursor-pointer hover:bg-[#e6e6e6]"
+      >
+        <div className="flex items-center">
+          <BugIcon />
+          <p className="ml-2 m-0 p-0 text-sm">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <div className="pl-6 text-xs text-[#585858]">
+          <span className=" text-ellipsis">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam,
+            odit!
+          </span>
+          <div className="pt-[3px]">
+            <span className="mr-3">Jan 16 2025</span>
+            <span className="text-[12px]">11 Comments</span>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
