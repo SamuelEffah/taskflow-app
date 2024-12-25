@@ -31,7 +31,7 @@ const Column = (props: ColumnProps) => {
   }));
 
   return drop(
-    <div className={`px-2 h-full bg-[#ececec] w-1/4`}>
+    <div className={`px-2 h-full bg-[#f6f6f6] w-1/4`}>
       <div>
         <p>
           {props.title}

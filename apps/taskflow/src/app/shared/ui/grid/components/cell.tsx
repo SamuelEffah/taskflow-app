@@ -30,11 +30,10 @@ function GridCell<TData, TValue>({
   const value = renderValue();
   const columnSize = column.getSize();
 
-  console.log("colums..... ", column);
   return (
-    <td className="text-sm" style={{ width: columnSize }}>
+    <span className="text-sm" style={{ width: columnSize }}>
       {value as ReactNode}
-    </td>
+    </span>
   );
 }
 

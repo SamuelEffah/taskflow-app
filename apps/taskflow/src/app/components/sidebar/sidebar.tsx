@@ -68,7 +68,7 @@ const SideBar = () => {
               <Link key={item.name} href={item.path}>
                 <div
                   key={item.id}
-                  className={`relative w-full h-[40px] my-2 cursor-pointer hover:bg-[#e6e6e6] ${isTabActive ? "bg-[#e6e6e6]" : ""} `}
+                  className={`relative w-full h-[40px] my-2 cursor-pointer hover:bg-[#f6f6f6] ${isTabActive ? "bg-[#f6f6f6]" : ""} `}
                 >
                   <div
                     className={`flex items-center before:content-normal before:w-[4px] h-full  before:absolute before:right-0 before:h-full ${isTabActive ? "before:bg-[#2038f2]" : ""}`}

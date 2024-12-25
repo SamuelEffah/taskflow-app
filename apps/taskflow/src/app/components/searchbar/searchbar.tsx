@@ -39,10 +39,10 @@ const SearchBar = (props: SearchBarProps) => {
 
   return (
     <div className="relative w-[500px]">
-      <div className="w-full bg-[#e1e1e1] p-1.5 rounded-md">
+      <div className="w-full bg-[#f6f6f6] p-1.5 rounded-md">
         <SearchIcon className="text-[#8e8e8e]" style={{ fontSize: "20px" }} />
         <input
-          className="bg-[#e1e1e1] h-full w-[90%] outline-none"
+          className="bg-[#f6f6f6] h-full w-[90%] outline-none"
           placeholder="search for tasks"
           {...getInputProps()}
         />

@@ -58,7 +58,7 @@ const CreateTaskModal = (props) => {
             }}
           >
             <div className="h-[300px] ">
-              <div className="w-full border-b-[2px] px-2 py-1">
+              <div className="w-full border-b-[1px] px-2 py-1">
                 <h3 className="font- text-md pt-2">Create Task</h3>
               </div>
 
@@ -78,7 +78,7 @@ const CreateTaskModal = (props) => {
                             </label>
                           </div>
                           <select
-                            className="bg-slate-100 ml-2 w-40 border-2 outline-[#60aafe] border-[#dfdfdf] "
+                            className="bg-inherit  ml-2 w-80 border-[1px] outline-[#ffffff] border-[#f1f1f1]  "
                             onChange={(e) => field.handleChange(e.target.value)}
                             id={field.name}
                             name={field.name}
@@ -108,7 +108,7 @@ const CreateTaskModal = (props) => {
                             </label>
                           </div>
                           <input
-                            className="bg-slate-100 ml-2 w-80 border-2 outline-[#60aafe] border-[#dfdfdf] "
+                            className="bg-inherit  ml-2 w-80 border-[1px] outline-[#ffffff] border-[#f1f1f1] "
                             id={field.name}
                             name={field.name}
                             value={field.state.value}
@@ -135,7 +135,7 @@ const CreateTaskModal = (props) => {
                             </label>
                           </div>
                           <input
-                            className="bg-slate-100 ml-2 w-80 border-2 outline-[#60aafe] border-[#dfdfdf] "
+                            className="bg-inherit  ml-2 w-80 border-[1px] outline-[#ffffff] border-[#f1f1f1] "
                             id={field.name}
                             name={field.name}
                             value={field.state.value}
@@ -162,7 +162,7 @@ const CreateTaskModal = (props) => {
                             </label>
                           </div>
                           <textarea
-                            className="bg-slate-100 ml-2 w-80 border-2 outline-[#60aafe] border-[#dfdfdf] "
+                            className="bg-inherit  ml-2 w-80 border-[1px] outline-[#ffffff] border-[#f1f1f1]  "
                             id={field.name}
                             name={field.name}
                             value={field.state.value}
@@ -180,7 +180,7 @@ const CreateTaskModal = (props) => {
               selector={(state) => [state.canSubmit, state.isSubmitting]}
               children={([canSubmit, isSubmitting]) => {
                 return (
-                  <div className="h-[50px] px-2 border-t-2 flex w-full justify-end items-center">
+                  <div className="h-[50px] px-2 border-t-[1px] flex w-full justify-end items-center">
                     <button
                       type="submit"
                       disabled={!canSubmit}
