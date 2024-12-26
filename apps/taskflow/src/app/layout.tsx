@@ -1,5 +1,4 @@
 import localFont from "next/font/local";
-import "@mantine/core/styles.css";
 
 import "./globals.css";
 import NavBar from "./components/navbar/navbar";

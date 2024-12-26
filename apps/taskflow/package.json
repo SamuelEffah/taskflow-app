@@ -5,10 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
-    "lint": "biome lint *",
-    "format": "prettier . --write",
-    "check": "biome check --apply *"
+    "start": "next start"
   },
   "dependencies": {
     "@emotion/react": "^11.13.5",
