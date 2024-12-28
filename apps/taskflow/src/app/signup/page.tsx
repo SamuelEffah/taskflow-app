@@ -2,6 +2,7 @@
 "use client";
 import { useForm } from "@tanstack/react-form";
 import Link from "next/link";
+import Logo from "../shared/ui/logo/logo";
 
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 type LoginProps = {};
@@ -21,7 +22,7 @@ const Signup = (props: LoginProps) => {
   return (
     <div className="w-full h-full flex flex-col items-center">
       <div className=" border-[1px] border-[#f1f1f1] mt-20  h-[380px] rounded-md flex flex-col items-center w-[360px] p-2">
-        <h4 className="font-bold text-lg text-[#4c60f5] my-1">TaskFlow</h4>
+       <Logo/>
         <div className="">
           <form
             onSubmit={(e) => {

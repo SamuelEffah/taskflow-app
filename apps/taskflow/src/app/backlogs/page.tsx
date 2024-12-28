@@ -2,7 +2,6 @@
 import { createColumnHelper } from "@tanstack/react-table";
 import React, { ReactElement, useRef, useState } from "react";
 import { Bookmark, Check, Circle } from "@mui/icons-material";
-import BacklogItem from "../components/backlog-item/backlog-item";
 import Grid from "../shared/ui/grid/grid";
 import useBaseGrid from "../shared/ui/grid/hooks/base-grid";
 import { Backlog, BacklogData } from "../utils/data/backlog";
@@ -95,8 +94,10 @@ const Backlogs = () => {
   });
 
   return (
+
     <div className="relative h-full">
-      <div className="flex  items-center justify-between px-10">
+      <p>backlogs</p>
+      {/* <div className="flex  items-center justify-between px-10">
         <div>
           <h1 className="text-lg p-0 mt-2 font-bold">Backlogs</h1>
           <span className="text-[#6f6f6f] font-medium text-sm p-0 m-0 ">
@@ -106,7 +107,7 @@ const Backlogs = () => {
       </div>
       <div className="h-[calc(100%-40px)] overflow-auto px-10">
         <Grid table={table} />
-      </div>
+      </div> */}
     </div>
   );
 };

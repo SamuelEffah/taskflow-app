@@ -25,15 +25,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="relative h-full font-[family-name:var(--font-geist-sans)]">
+   
+         <div className="relative h-full font-[family-name:var(--font-geist-sans)]">
+         <SideBar />
+          <div className="flex relative flex-col  ml-[56px] bg-[#fcfcfc] h-full relative md:ml-[208px] md:w-[calc(100%-208px)] w-[calc(100%-56px)]">
           <NavBar />
-          <div className="flex relative h-[calc(100%-60px)]">
-            <SideBar />
-            <div className="relative h-full md:ml-[240px] ml-[56px] md:w-[calc(100%-240px)] w-[calc(100%-56px)]">
-              <div className="h-full relative">{children}</div>
-            </div>
+          <div className="h-[calc(100%-48px)] overflow-auto p-4 px-8">
+            
+            {children}
+
           </div>
-        </div>
+           
+          </div>
+        </div> 
       </body>
     </html>
   );

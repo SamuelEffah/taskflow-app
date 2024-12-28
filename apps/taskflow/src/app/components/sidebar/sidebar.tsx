@@ -5,8 +5,12 @@ import {
   DescriptionOutlined,
   DonutLargeOutlined,
   GridViewOutlined,
+  Diamond,
   GroupOutlined,
   MoreVert,
+  EventOutlined,
+  InsertChart,
+  InsertChartOutlined,
 } from "@mui/icons-material";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -15,6 +19,9 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import CreateTaskModal from "../create-task-modal/create-task-modal";
 import UserAvatar from "../userAvatar/userAvatar";
+import { Navigation } from "@/app/utils/data/navigation";
+import { NAVIGATION_ICONS } from "@/app/shared/ui/icons/navigation-bar-icons";
+import Logo from "@/app/shared/ui/logo/logo";
 
 const SIDEBAR_ICONS: Record<string, React.ReactElement> = {
   calendar: <CalendarMonthOutlined style={{ fontSize: "20px" }} />,
@@ -24,26 +31,8 @@ const SIDEBAR_ICONS: Record<string, React.ReactElement> = {
   board: <GridViewOutlined style={{ fontSize: "20px" }} />,
 };
 
-const SIDEBAR_ITEMS = [
-  {
-    id: "projects",
-    name: "Projects",
-    path: "/projects",
-    icon: "description",
-  },
-  {
-    id: "board",
-    name: "Board",
-    path: "/board",
-    icon: "board",
-  },
-  {
-    id: "my-tasks",
-    name: "Backlogs",
-    path: "/backlogs",
-    icon: "donutLarge",
-  },
-];
+
+const NavbarSection = Object.keys(Navigation)
 
 const SideBar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -58,56 +47,85 @@ const SideBar = () => {
   const pathName = usePathname();
 
   return (
-    <div className="absolute md:w-60 w-14 border-r-[1px] h-full text-black">
-      <CreateTaskModal />
-      <div className="mt-6">
-        <ul>
-          {SIDEBAR_ITEMS.map((item, index) => {
-            const isTabActive = pathName === item.path;
-            return (
-              <Link key={item.name} href={item.path}>
-                <div
-                  key={item.id}
-                  className={`relative w-full h-[40px] my-2 cursor-pointer hover:bg-[#f6f6f6] ${isTabActive ? "bg-[#f6f6f6]" : ""} `}
-                >
-                  <div
-                    className={`flex items-center before:content-normal before:w-[4px] h-full  before:absolute before:right-0 before:h-full ${isTabActive ? "before:bg-[#2038f2]" : ""}`}
-                  >
-                    <div className="p-2 w-full flex items-center md:justify-start justify-center">
-                      {SIDEBAR_ICONS[item.icon]}
-                      <span className="ml-1 md:block hidden">{item.name}</span>
-                    </div>
-                  </div>
+    <div className="absolute overflow-auto flex flex-col items-center justify-between md:w-52 h-dvh w-14 border-r-[1px] border-[#f1f1f1]  bg-[#fefefe]">
+      <div className="relative w-full flex flex-col items-center">
+       <Logo/>
+        {NavbarSection.map((section)=>{
+          return (
+
+
+        <div key={section} className="mt-8 w-[90%] relative">
+          <div className="mb-1">
+            <p className="text-[11px] text-[#646464] capitalize">{section}</p>
+          </div>
+          {Navigation[section].map((navItem)=>{
+         return  <div key={navItem.name} className="w-full">
+            <div className="w-full relative flex flex-col items-end">
+            <button className={`w-full p-[2px] rounded-md  hover:bg-[#efefef] ${pathName === navItem.path ? "bg-[#efefef]": ""}`}>
+              <div className="w-max">
+              <span className="text-[#555555]">
+               {NAVIGATION_ICONS[navItem.icon]}
+              </span>
+              <span className="text-[11px] pl-2">
+                {navItem.name}
+              </span>
+
+              </div>
+            </button>
+         
+            <div className="w-[90%] mt-1 relative">
+            {navItem.subNavigation?.map((subNavBarItem)=>{
+              return (
+                <div key={subNavBarItem.name} className="w-full">
+                       <button className="w-full p-[2px] rounded-md  hover:bg-[#efefef]">
+              <div className="w-max">
+              <span className="text-[#555555]">
+               {NAVIGATION_ICONS[subNavBarItem.icon]}
+              </span>
+              <span className="text-[11px] pl-2">
+                {subNavBarItem.name}
+              </span>
+
+              </div>
+            </button>
                 </div>
-              </Link>
-            );
+              )
+            })}
+               </div>
+            </div>
+         
+          </div>
+             
           })}
-        </ul>
+
+        </div>
+
+          )
+        })}
+
+
       </div>
 
-      <div className="p-1 absolute bottom-6 w-full">
-        <div className=" flex items-center  md:justify-between justify-center w-full">
-          <div className="flex items-center">
-            <UserAvatar />
-            <span className="text-sm pl-2 md:block hidden ">Sam Effah</span>
-          </div>
-          <button onClick={handleClick} className="md:block hidden">
-            <MoreVert />
-          </button>
+      <div className="relative w-[90%] mt-8 mb-4">
+      <div className="w-full mb-8">
+            <button className="w-full p-[2px] rounded-md  hover:bg-[#efefef]">
+              <div className="w-max">
+              <span className="text-[#555555]">
+               {NAVIGATION_ICONS["SettingsOutlined"]}
+              </span>
+              <span className="text-[11px] pl-2">
+               Settings
+              </span>
+
+              </div>
+            </button>
         </div>
-        <Menu
-          id="basic-menu"
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          MenuListProps={{
-            "aria-labelledby": "basic-button",
-          }}
-        >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
-        </Menu>
+        <div className="flex items-center my-4">
+          <UserAvatar className=""/>
+          <span className="text-[11px] ml-1">Sam Effah</span>
+        </div>
       </div>
+       
     </div>
   );
 };

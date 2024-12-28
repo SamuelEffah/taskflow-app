@@ -3,7 +3,10 @@ import { useCallback, useState } from "react";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 import { DndProvider } from "react-dnd";
-import Column from "./column";
+import BacklogColumn from "./column/backlog-column";
+import InProgressColumn from "./column/in-progress-column";
+import ValidationColumn from "./column/validation";
+import DoneColumn from "./column/done-column";
 
 interface Task {
   id: string;
@@ -14,7 +17,7 @@ interface Task {
   columnId?: string;
 }
 
-const KanbanBoard = () => {
+const Board = () => {
   const [items, setItems] = useState<Task[]>([
     {
       id: "stag",
@@ -42,8 +45,8 @@ const KanbanBoard = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="flex w-full h-full relative">
-        <Column
+      <div className="w-full grid bg-white min-h-96 grid-cols-4 relative">
+        <BacklogColumn
           items={items.filter(
             (item) => item.columnId === "todo" || !item.columnId,
           )}
@@ -51,28 +54,29 @@ const KanbanBoard = () => {
           title="Todo"
           onColumnChange={onColumnChange}
         />
-        <Column
+       <InProgressColumn
           items={items.filter((item) => item.columnId === "inprogress")}
           id={"inprogress"}
           title="In Progress"
           onColumnChange={onColumnChange}
         />
-        <Column
+      
+         <ValidationColumn
           items={items.filter((item) => item.columnId === "in-review")}
           id={"in-review"}
           title="In Review"
           onColumnChange={onColumnChange}
         />
 
-        <Column
+         <DoneColumn
           items={items.filter((item) => item.columnId === "completed")}
           id={"completed"}
           title="Completed"
           onColumnChange={onColumnChange}
-        />
+        /> 
       </div>
     </DndProvider>
   );
 };
 
-export default KanbanBoard;
+export default Board;

@@ -2,8 +2,9 @@
 "use client";
 import Link from "next/link";
 
-import { Google } from "@mui/icons-material";
+import { Diamond, Google } from "@mui/icons-material";
 import { useForm } from "@tanstack/react-form";
+import Logo from "../shared/ui/logo/logo";
 
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 
@@ -21,7 +22,7 @@ const Login = (props) => {
   return (
     <div className="w-full h-full flex flex-col items-center">
       <div className=" border-[1px] border-[#efefef] mt-20  h-[380px] rounded-md flex flex-col items-center w-[360px] p-2">
-        <h4 className="font-bold text-lg text-[#4c60f5] my-1">TaskFlow</h4>
+         <Logo/>
         <div className="">
           <form
             onSubmit={(e) => {
