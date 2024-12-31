@@ -30,34 +30,34 @@ export const Navigation:Record<string, NavigationList[]> ={
         name: "Tasks",
         path: "/tasks",
         subNavigation:[
-            {
-                icon:"FolderOutlined",
-                name: "Backlog",
-                path: "/task/backlog",
+        //     {
+        //         icon:"FolderOutlined",
+        //         name: "Backlog",
+        //         path: "/task/backlog",
     
-            },
-            {
-            icon:"BoltOutlined",
-            name: "In Progress",
-            path: "/task/in-progress",
+        //     },
+        //     {
+        //     icon:"BoltOutlined",
+        //     name: "In Progress",
+        //     path: "/task/in-progress",
 
-        },
-        {
-            icon:"BookmarkAddedOutlined",
-            name: "Validation",
-            path: "/task/validation",
+        // },
+        // {
+        //     icon:"BookmarkAddedOutlined",
+        //     name: "Validation",
+        //     path: "/task/validation",
 
-        },
-        {
-            icon:"CheckCircleOutlined",
-            name: "Done",
-            path: "/task/done",
+        // },
+        // {
+        //     icon:"CheckCircleOutlined",
+        //     name: "Done",
+        //     path: "/task/done",
 
-        }
+        // }
         
       
         
-        
+
 
     ]
     },
