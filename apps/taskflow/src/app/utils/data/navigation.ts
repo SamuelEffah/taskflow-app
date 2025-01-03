@@ -67,12 +67,21 @@ export const Navigation:Record<string, NavigationList[]> ={
         {
         icon:"NotificationsOutlined",
         name: "Notifcation",
-        path: "/notification"
-    },
+        path: "/notification/inbox",
+        subNavigation:[
+            {
+                icon:"InboxOutlined",
+                name: "Inbox",
+                path: "/notification/inbox"
+            },
+
+
     {
-        icon:"InboxOutlined",
-        name: "Inbox",
-        path: "/inbox"
+        icon:"DescriptionOutlined",
+        name: "Read",
+        path: "/notification/read"
+    },
+        ]
     },
     {
         icon:"CodeOutlined",
@@ -80,11 +89,6 @@ export const Navigation:Record<string, NavigationList[]> ={
         path: "/integration"
     },
 
-    {
-        icon:"DescriptionOutlined",
-        name: "Reporting",
-        path: "/reporting"
-    },
 ],
 
     metrics:[

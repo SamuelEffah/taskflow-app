@@ -61,6 +61,7 @@ const SideBar = () => {
           {Navigation[section].map((navItem)=>{
          return  <div key={navItem.name} className="w-full">
             <div className="w-full relative flex flex-col items-end">
+            <Link className="w-full relative" href={navItem.path}>
             <button className={`w-full p-[2px] rounded-md  hover:bg-[#efefef] ${pathName === navItem.path ? "bg-[#efefef]": ""}`}>
               <div className="w-max">
               <span className="text-[#555555]">
@@ -72,12 +73,14 @@ const SideBar = () => {
 
               </div>
             </button>
+            </Link>
          
             <div className="w-[90%] mt-1 relative">
             {navItem.subNavigation?.map((subNavBarItem)=>{
               return (
-                <div key={subNavBarItem.name} className="w-full">
-                       <button className="w-full p-[2px] rounded-md  hover:bg-[#efefef]">
+                <div key={subNavBarItem.name} className="w-full my-[4px] relative">
+              <Link className="relative w-full" href={subNavBarItem.path}>
+              <button className={`w-full p-[2px] rounded-md  hover:bg-[#efefef] ${pathName === subNavBarItem.path ? "bg-[#efefef]": ""}`}>
               <div className="w-max">
               <span className="text-[#555555]">
                {NAVIGATION_ICONS[subNavBarItem.icon]}
@@ -88,6 +91,9 @@ const SideBar = () => {
 
               </div>
             </button>
+              
+              
+              </Link>
                 </div>
               )
             })}
