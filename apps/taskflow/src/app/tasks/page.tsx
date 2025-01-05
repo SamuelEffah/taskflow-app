@@ -5,6 +5,7 @@ import TaskComments from "../components/task-comments/task-comment"
 import TaskCommits from "../components/task-commits/task-commits"
 import TaskStatus from "../components/task-status/task-status"
 import Board from '../components/board/board'
+import { AddOutlined } from '@mui/icons-material'
 
 
 interface FilterTags{
@@ -49,7 +50,7 @@ const Tasks = (props)=>{
                    <TaskBurndown/>
                 </div>
                 <div className="mt-6">
-                  <div>
+                  <div className='flex items-center'>
                     <ul className="flex text-[10px] font-normal p-1 w-max bg-[#eff0f3] rounded-md">
                       {FILTERTAGS.map((tag)=>(
                         <li 
@@ -59,6 +60,11 @@ const Tasks = (props)=>{
                       ))}
                      
                     </ul>
+
+                    <button className='border-[1px] bg-[#00] flex items-center px-2 py-1 cursor-pointer rounded-md text-[10px] ml-12'>
+                      <AddOutlined className='mr-1' style={{fontSize:"12px"}}/>
+                      Add Task
+                    </button>
                   </div>
                   <div className='mt-3'>
                         <Board/>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowBack, ShareOutlined, SearchOutlined } from "@mui/icons-material";
+import { ArrowBack,AddOutlined ,ShareOutlined, SearchOutlined } from "@mui/icons-material";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export type NavBarProps = {};
@@ -25,8 +25,9 @@ const NavBar = (props: NavBarProps) => {
         <ShareOutlined className="text-[#7a7a7a]" style={{fontSize: "14px"}}/>
         <span className="text-xs px-1">Share</span>
       </button >
-      <button className="bg-black px-2 py-[2px] rounded-md text-[12px] text-[#ffffff]">
-        Create Task
+      <button className="bg-[#0408e9] px-2 py-[2px]  flex items-center rounded-md text-[10px] text-[#ffffff]">
+        <AddOutlined style={{fontSize:"14px"}}/>
+        New Project
       </button>
       </div>
     </div>

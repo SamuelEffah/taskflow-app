@@ -45,7 +45,7 @@ const Board = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="w-full grid bg-white min-h-96 grid-cols-4 relative">
+      <div className="w-full grid border-[1px] rounded-md border-[#f1f1f1] bg-white min-h-96 grid-cols-4 relative">
         <BacklogColumn
           items={items.filter(
             (item) => item.columnId === "todo" || !item.columnId,
