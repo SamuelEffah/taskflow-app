@@ -7,34 +7,17 @@ import BacklogColumn from "./column/backlog-column";
 import InProgressColumn from "./column/in-progress-column";
 import ValidationColumn from "./column/validation";
 import DoneColumn from "./column/done-column";
-
-interface Task {
-  id: string;
-  description?: string;
-  assignee?: string;
-  dueDate?: string;
-  status?: string;
-  columnId?: string;
-}
+import { BoardItems, Task } from "@/app/utils/data/board-items";
 
 const Board = () => {
-  const [items, setItems] = useState<Task[]>([
-    {
-      id: "stag",
-      columnId: "todo",
-    },
-    {
-      id: "troa",
-      columnId: "tod",
-    },
-  ]);
+  const [items, setItems] = useState<Task[]>([...BoardItems]);
 
   const onColumnChange = useCallback(
     (taskId: string, columnId: string) => {
       setItems((prevItems) => {
         return prevItems.map((item) => {
           if (item.id === taskId) {
-            item.columnId = columnId;
+            item.status = columnId;
           }
           return item;
         });
@@ -48,28 +31,28 @@ const Board = () => {
       <div className="w-full grid border-[1px] rounded-md border-[#f1f1f1] bg-white min-h-96 grid-cols-4 relative">
         <BacklogColumn
           items={items.filter(
-            (item) => item.columnId === "todo" || !item.columnId,
+            (item) => item.status === "todo" || !item.status,
           )}
           id="todo"
           title="Todo"
           onColumnChange={onColumnChange}
         />
        <InProgressColumn
-          items={items.filter((item) => item.columnId === "inprogress")}
-          id={"inprogress"}
+          items={items.filter((item) => item.status === "in progress")}
+          id={"in progress"}
           title="In Progress"
           onColumnChange={onColumnChange}
         />
       
          <ValidationColumn
-          items={items.filter((item) => item.columnId === "in-review")}
+          items={items.filter((item) => item.status === "in-review")}
           id={"in-review"}
           title="In Review"
           onColumnChange={onColumnChange}
         />
 
          <DoneColumn
-          items={items.filter((item) => item.columnId === "completed")}
+          items={items.filter((item) => item.status === "completed")}
           id={"completed"}
           title="Completed"
           onColumnChange={onColumnChange}

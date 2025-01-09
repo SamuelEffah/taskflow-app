@@ -27,15 +27,16 @@ export const Navigation:Record<string, NavigationList[]> ={
 
     {
         icon:"Grid3x3Outlined",
-        name: "Tasks",
-        path: "/tasks",
+        name: "Projects",
+        path: "",
+        
         subNavigation:[
-        //     {
-        //         icon:"FolderOutlined",
-        //         name: "Backlog",
-        //         path: "/task/backlog",
+            {
+                icon:"FolderOutlined",
+                name: "Acme",
+                path: "/projects/acme",
     
-        //     },
+            },
         //     {
         //     icon:"BoltOutlined",
         //     name: "In Progress",
@@ -63,6 +64,7 @@ export const Navigation:Record<string, NavigationList[]> ={
     },
 ],
 
+
     tools:[
         {
         icon:"NotificationsOutlined",
@@ -83,21 +85,21 @@ export const Navigation:Record<string, NavigationList[]> ={
     },
         ]
     },
-    {
-        icon:"CodeOutlined",
-        name: "Integration",
-        path: "/integration"
-    },
+    // {
+    //     icon:"CodeOutlined",
+    //     name: "Integration",
+    //     path: "/integration"
+    // },
 
 ],
 
-    metrics:[
-        {
-        icon:"ShowChartOutlined",
-        name: "Active",
-        path: "/"
-    }
+    // metrics:[
+    //     {
+    //     icon:"ShowChartOutlined",
+    //     name: "Active",
+    //     path: "/"
+    // }
  
-]
+
 }
 

@@ -1,49 +1,14 @@
 "use client";
-import {
-  Add,
-  CalendarMonthOutlined,
-  DescriptionOutlined,
-  DonutLargeOutlined,
-  GridViewOutlined,
-  Diamond,
-  GroupOutlined,
-  MoreVert,
-  EventOutlined,
-  InsertChart,
-  InsertChartOutlined,
-} from "@mui/icons-material";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import CreateTaskModal from "../create-task-modal/create-task-modal";
 import UserAvatar from "../userAvatar/userAvatar";
 import { Navigation } from "@/app/utils/data/navigation";
 import { NAVIGATION_ICONS } from "@/app/shared/ui/icons/navigation-bar-icons";
 import Logo from "@/app/shared/ui/logo/logo";
 
-const SIDEBAR_ICONS: Record<string, React.ReactElement> = {
-  calendar: <CalendarMonthOutlined style={{ fontSize: "20px" }} />,
-  donutLarge: <DonutLargeOutlined style={{ fontSize: "20px" }} />,
-  description: <DescriptionOutlined style={{ fontSize: "20px" }} />,
-  group: <GroupOutlined style={{ fontSize: "20px" }} />,
-  board: <GridViewOutlined style={{ fontSize: "20px" }} />,
-};
-
-
 const NavbarSection = Object.keys(Navigation)
 
 const SideBar = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   const pathName = usePathname();
 
   return (
@@ -61,8 +26,8 @@ const SideBar = () => {
           {Navigation[section].map((navItem)=>{
          return  <div key={navItem.name} className="w-full">
             <div className="w-full relative flex flex-col items-end">
-            <Link className="w-full relative" href={navItem.path}>
-            <button className={`w-full p-[2px] rounded-md  hover:bg-[#efefef] ${pathName === navItem.path ? "bg-[#efefef]": ""}`}>
+            <Link className="w-full relative" href={navItem.subNavigation ? "" : navItem.path}>
+            <button className={`w-full p-[2px] rounded-md   ${!navItem.subNavigation ? "hover:bg-[#efefef]" : "" }  ${pathName === navItem.path ? "bg-[#efefef]": ""}`}>
               <div className="w-max">
               <span className="text-[#555555]">
                {NAVIGATION_ICONS[navItem.icon]}

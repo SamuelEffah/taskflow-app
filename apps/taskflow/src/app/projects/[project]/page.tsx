@@ -1,10 +1,11 @@
 "use client"
 import {useState, useCallback} from 'react'
-import TaskBurndown from "../components/task-burndown/task-burndown"
-import TaskComments from "../components/task-comments/task-comment"
-import TaskCommits from "../components/task-commits/task-commits"
-import TaskStatus from "../components/task-status/task-status"
-import Board from '../components/board/board'
+import {useParams} from "next/navigation"
+import TaskBurndown from "../../components/task-burndown/task-burndown"
+import TaskComments from "../../components/task-comments/task-comment"
+import TaskCommits from "../../components/task-commits/task-commits"
+import Projectstatus from "../../components/task-status/task-status"
+import Board from '../../components/board/board'
 import { AddOutlined } from '@mui/icons-material'
 
 
@@ -14,22 +15,16 @@ interface FilterTags{
 }
 const FILTERTAGS:FilterTags[] = [
   {id: 1, 
-    label: "Spreedsheet"
-  },
-  {id: 2, 
     label: "Board"
   },
-  {id: 3, 
-    label: "Calendar"
-  },
-  {id: 4, 
-    label: "Timeline"
-  }
+
 ]
 
-const Tasks = (props)=>{
+const Projects = (props)=>{
 
-  const [currFilterTag, setCurrFilterTag] = useState<number>(2)
+  const {project} = useParams()
+
+  const [currFilterTag, setCurrFilterTag] = useState<number>(1)
 
   const handleFilterTag = useCallback((tagId: number)=>{
     setCurrFilterTag(tagId)
@@ -38,11 +33,11 @@ const Tasks = (props)=>{
     return (
         <div className="mt-2">
                 <div>
-                  <h2 className="font-bold text-xs">Tasks Report</h2>
+                  <h2 className="font-bold text-xs capitalize">{project} Report</h2>
                   <p className="text-[10px] w-3/6 text-[#5c5c5c]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, facere fugit cumque molestias magnam atque suscipit quos voluptatum mollitia repellat.</p>
                 </div>
                 <div className="mt-5 grid grid-cols-[minmax(0px,_1fr)_200px_minmax(0px,_1fr)] gap-3">
-                   <TaskStatus/>
+                   <Projectstatus/>
                    <div className="relative grid gap-3">
                    <TaskComments/>
                    <TaskCommits/>
@@ -74,4 +69,4 @@ const Tasks = (props)=>{
     )
 }
 
-export default Tasks
+export default Projects

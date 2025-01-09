@@ -14,9 +14,9 @@ const Login = (props) => {
       email: "",
       password: "",
     },
-    onSubmit: async ({ value }) => {
-      console.log("value.... ", value);
-    },
+    // onSubmit: async ({ value }) => {
+     
+    // },
   });
 
   return (

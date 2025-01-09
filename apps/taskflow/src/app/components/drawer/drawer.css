@@ -1,0 +1,9 @@
+.MuiDrawer-paper{
+    width: 400px;
+    border-top-left-radius: 5px;
+    background-color: #fefefe;
+}
+
+.MuiBackdrop-root{
+   background-color: rgba(0, 0, 0, 0.1); 
+}

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "./components/navbar/navbar";
 import SideBar from "./components/sidebar/sidebar";
+import TaskflowDrawer from "./components/drawer/drawer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -37,6 +38,7 @@ export default function RootLayout({
           </div>
            
           </div>
+          <TaskflowDrawer/>
         </div> 
       </body>
     </html>
