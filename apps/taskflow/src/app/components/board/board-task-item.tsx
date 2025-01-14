@@ -1,9 +1,9 @@
 import { CalendarTodayOutlined, MapsUgcOutlined } from "@mui/icons-material";
 import { useDrag } from "react-dnd";
-import UserAvatar from "../userAvatar/userAvatar";
 import { useCallback } from "react";
 import { Task } from "@/app/utils/data/board-items";
 import useTaskDetailsStore from "@/app/shared/store/task-details-store";
+import { Avatar } from "@mui/material";
 
 
 interface BoardTaskItemProps {
@@ -38,7 +38,7 @@ const BoardTaskItem = ({task}: BoardTaskItemProps) => {
       </div>
       <div className="w-full border-b-[1px] h-2 border-[#f1f1f1]">&nbsp;</div>
       <div className="flex justify-between items-center mt-2">
-        <UserAvatar/>
+        <Avatar sx={{height: 24, width: 24}} src="/images/user-1.jpg"/>
          <div className="flex items-center">
           <span className="text-[10px] flex items-center text-[#515151]">
             <MapsUgcOutlined className="mr-[2px]"  style={{fontSize:"11px"}}/>

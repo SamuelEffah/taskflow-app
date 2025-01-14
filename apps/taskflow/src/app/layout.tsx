@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "./components/navbar/navbar";
 import SideBar from "./components/sidebar/sidebar";
 import TaskflowDrawer from "./components/drawer/drawer";
+import UserOverviewModal from "./components/user-overview-modal/user-overview-modal";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -39,6 +40,7 @@ export default function RootLayout({
            
           </div>
           <TaskflowDrawer/>
+          <UserOverviewModal/>
         </div> 
       </body>
     </html>

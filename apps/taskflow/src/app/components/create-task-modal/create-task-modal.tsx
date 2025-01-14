@@ -1,9 +1,7 @@
-/* eslint-disable react/no-children-prop */
 "use client";
 import { Add } from "@mui/icons-material";
 import { Modal } from "@mui/material";
 import { useForm } from "@tanstack/react-form";
-import type { FieldApi } from "@tanstack/react-form";
 
 import { useCallback, useState } from "react";
 

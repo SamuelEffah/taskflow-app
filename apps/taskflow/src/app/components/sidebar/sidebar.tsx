@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import UserAvatar from "../userAvatar/userAvatar";
 import { Navigation } from "@/app/utils/data/navigation";
 import { NAVIGATION_ICONS } from "@/app/shared/ui/icons/navigation-bar-icons";
 import Logo from "@/app/shared/ui/logo/logo";
+import { Avatar } from "@mui/material";
 
 const NavbarSection = Object.keys(Navigation)
 
@@ -92,7 +92,7 @@ const SideBar = () => {
             </button>
         </div>
         <div className="flex items-center my-4">
-          <UserAvatar className=""/>
+          <Avatar sx={{height: 25, width: 25}} src="/images/user-1.jpg" />
           <span className="text-[11px] ml-1">Sam Effah</span>
         </div>
       </div>

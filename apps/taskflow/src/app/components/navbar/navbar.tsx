@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowBack,AddOutlined ,ShareOutlined, SearchOutlined } from "@mui/icons-material";
+import SearchBar from "./searchbar/searchbar";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export type NavBarProps = {};
@@ -15,11 +16,9 @@ const NavBar = (props: NavBarProps) => {
         <span className="mx-4 border-l-[1px] flex-shrink-0 ">&nbsp;</span>
       </div>
       <div className="flex items-center mr-4">
-        <div className="flex bg-[#f4f4f4] w-48 rounded-[4px] p-[2px]">
-          <span >
-            <SearchOutlined className="text-[#7a7a7a]" style={{fontSize: "14px"}} />
-          </span>
-          <input placeholder="Search" type="text" className="bg-[#f4f4f4] w-[95%] px-1  text-[#373737] outline-none text-xs" />
+        <div className="flex bg-[#f4f4f4] w-60 relative rounded-[4px] p-[2px]">
+
+        <SearchBar/>
         </div>
       <button className="mx-4">
         <ShareOutlined className="text-[#7a7a7a]" style={{fontSize: "14px"}}/>

@@ -7,6 +7,7 @@ import TaskCommits from "../../components/task-commits/task-commits"
 import Projectstatus from "../../components/task-status/task-status"
 import Board from '../../components/board/board'
 import { AddOutlined } from '@mui/icons-material'
+import ProjectUsers from '@/app/components/project-users/project-users'
 
 
 interface FilterTags{
@@ -16,8 +17,7 @@ interface FilterTags{
 const FILTERTAGS:FilterTags[] = [
   {id: 1, 
     label: "Board"
-  },
-
+  }
 ]
 
 const Projects = (props)=>{
@@ -31,12 +31,16 @@ const Projects = (props)=>{
   },[currFilterTag, setCurrFilterTag])
 
     return (
-        <div className="mt-2">
+        <div className="mt-2 grid grid-cols-[minmax(0px,_1fr)_250px] gap-4">
+            <div className=''>
                 <div>
                   <h2 className="font-bold text-xs capitalize">{project} Report</h2>
                   <p className="text-[10px] w-3/6 text-[#5c5c5c]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, facere fugit cumque molestias magnam atque suscipit quos voluptatum mollitia repellat.</p>
                 </div>
-                <div className="mt-5 grid grid-cols-[minmax(0px,_1fr)_200px_minmax(0px,_1fr)] gap-3">
+              
+
+         
+                <div className="grid grid-cols-[minmax(0px,_1fr)_200px_minmax(0px,_1fr)] gap-3">
                    <Projectstatus/>
                    <div className="relative grid gap-3">
                    <TaskComments/>
@@ -64,7 +68,13 @@ const Projects = (props)=>{
                   <div className='mt-3'>
                         <Board/>
                   </div>
+                  </div>
                 </div>
+                <div className='relative w-full'>
+                  <ProjectUsers/>
+
+                </div>
+                
             </div>
     )
 }

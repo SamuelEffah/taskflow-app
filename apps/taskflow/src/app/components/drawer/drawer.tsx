@@ -1,5 +1,5 @@
 'use client';
-import { Drawer } from '@mui/material';
+import { Avatar, Drawer } from '@mui/material';
 import './drawer.css';
 import {
   AccessTimeOutlined,
@@ -14,7 +14,6 @@ import PDFfile from '../pdf-file/pdf-file';
 import { useMemo } from 'react';
 import { BoardItems, Task } from '@/app/utils/data/board-items';
 import useTaskDetailsStore from '@/app/shared/store/task-details-store';
-import UserAvatar from '../userAvatar/userAvatar';
 
 const TaskflowDrawer = () => {
   const { open, closeModal, taskId } = useTaskDetailsStore();
@@ -119,14 +118,14 @@ const TaskflowDrawer = () => {
                 </div>
                 <div className="mt-3">
                 <div className='flex items-center my-5'>
-                <UserAvatar className="w-6 h-6" />
+                <Avatar sx={{height: 24, width: 24}} src="/images/user-1.jpg"/>
                 <input className='w-[88%] ml-1 border-[1px] rounded-sm p-[3px]' type="text" placeholder='add a comment' />
                 </div>
                   <div className="flex">
-                    <UserAvatar className="w-6 h-6" />
+                  <Avatar sx={{height: 24, width: 24}} src="/images/user-2.jpg"/>
                     <div className="flex flex-col ml-2">
                       <div className=" text-[10px] text-[#808080]">
-                      <span>Sam Effah</span>
+                      <span>Dan Smith</span>
                       <span className="mx-1">&#x2022;</span>
                       <span>8 hours ago</span>
                         <div>
