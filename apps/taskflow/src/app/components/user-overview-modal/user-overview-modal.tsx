@@ -39,9 +39,9 @@ const UserOverviewModal = () => {
     <div>
       <Modal open={open} onClose={handleClose}>
         <div className="w-full h-full flex justify-center ">
-          <div className="w-[500px] p-2 relative h-[500px] bg-[#fff] rounded-md mt-32">
+          <div className="w-[500px] p-2  relative h-[500px] bg-[#fff] rounded-md mt-32">
             <button onClick={handleClose} className="absolute right-4 top-4">
-              <CloseOutlined />
+                  <CloseOutlined style={{fontSize:"16px"}} />
             </button>
             <div className="mt-10  flex items-center">
               <Avatar alt={user?.fullname} src={user?.avatars[0]}/>

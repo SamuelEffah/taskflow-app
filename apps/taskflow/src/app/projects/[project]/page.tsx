@@ -31,16 +31,14 @@ const Projects = (props)=>{
   },[currFilterTag, setCurrFilterTag])
 
     return (
-        <div className="mt-2 grid grid-cols-[minmax(0px,_1fr)_250px] gap-4">
+        <div className="mt-2 grid md:grid-cols-[minmax(0px,_1fr)_250px]  grid-cols-[minmax(0px,_1fr)_50px] gap-4">
             <div className=''>
                 <div>
                   <h2 className="font-bold text-xs capitalize">{project} Report</h2>
                   <p className="text-[10px] w-3/6 text-[#5c5c5c]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, facere fugit cumque molestias magnam atque suscipit quos voluptatum mollitia repellat.</p>
                 </div>
               
-
-         
-                <div className="grid grid-cols-[minmax(0px,_1fr)_200px_minmax(0px,_1fr)] gap-3">
+                <div className="grid md:grid-cols-[minmax(0px,_1fr)_200px_minmax(0px,_1fr)] md:grid-rows-none grid-flow-col grid-rows-3 gap-3">
                    <Projectstatus/>
                    <div className="relative grid gap-3">
                    <TaskComments/>

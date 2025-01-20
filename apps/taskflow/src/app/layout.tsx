@@ -5,6 +5,7 @@ import NavBar from "./components/navbar/navbar";
 import SideBar from "./components/sidebar/sidebar";
 import TaskflowDrawer from "./components/drawer/drawer";
 import UserOverviewModal from "./components/user-overview-modal/user-overview-modal";
+import CreateProjectModal from "./components/create-project-modal/create-project-modal";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,17 +31,15 @@ export default function RootLayout({
    
          <div className="relative h-full font-[family-name:var(--font-geist-sans)]">
          <SideBar />
-          <div className="flex relative flex-col  ml-[56px] bg-[#fcfcfc] h-full relative md:ml-[208px] md:w-[calc(100%-208px)] w-[calc(100%-56px)]">
+          <div className="flex  flex-col  ml-[56px] bg-[#fcfcfc] shadow-md h-full relative md:ml-[208px] md:w-[calc(100%-208px)] w-[calc(100%-56px)]">
           <NavBar />
-          <div className="h-[calc(100%-48px)] overflow-auto p-4 px-8">
-            
+          <div className="h-[calc(100%-48px)] overflow-auto py-4 md:px-8 px-2"> 
             {children}
-
           </div>
-           
           </div>
           <TaskflowDrawer/>
           <UserOverviewModal/>
+          <CreateProjectModal/>
         </div> 
       </body>
     </html>

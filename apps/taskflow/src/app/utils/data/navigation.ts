@@ -64,34 +64,33 @@ export const Navigation:Record<string, NavigationList[]> ={
     },
 ],
 
+    // tools:[
+    //     {
+    //     icon:"NotificationsOutlined",
+    //     name: "Notifcation",
+    //     path: "/notification/inbox",
+    //     subNavigation:[
+    //         {
+    //             icon:"InboxOutlined",
+    //             name: "Inbox",
+    //             path: "/notification/inbox"
+    //         },
 
-    tools:[
-        {
-        icon:"NotificationsOutlined",
-        name: "Notifcation",
-        path: "/notification/inbox",
-        subNavigation:[
-            {
-                icon:"InboxOutlined",
-                name: "Inbox",
-                path: "/notification/inbox"
-            },
 
-
-    {
-        icon:"DescriptionOutlined",
-        name: "Read",
-        path: "/notification/read"
-    },
-        ]
-    },
+    // {
+    //     icon:"DescriptionOutlined",
+    //     name: "Read",
+    //     path: "/notification/read"
+    // },
+    //     ]
+    // },
     // {
     //     icon:"CodeOutlined",
     //     name: "Integration",
     //     path: "/integration"
     // },
 
-],
+// ],
 
     // metrics:[
     //     {

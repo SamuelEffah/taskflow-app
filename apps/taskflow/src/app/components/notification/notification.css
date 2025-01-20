@@ -1,0 +1,12 @@
+.taskflow-notification{
+
+    .MuiPaper-root{
+        width: 400px;
+        height: 400px;
+        /* --Paper-shadow: 0px 4px 4px -3px rgba(0, 0, 0, 0.2) ,0px 4px 6px 1px rgba(0,0,0,0.14)!important; */
+        border-radius: 8px;
+    }
+
+
+}
+
